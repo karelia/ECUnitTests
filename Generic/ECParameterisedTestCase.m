@@ -112,11 +112,11 @@
 
 + (id) defaultTestSuite
 {
-    SenTestSuite* result = nil;
+    XCTestSuite* result = nil;
     NSDictionary* data = [self parameterisedTestData];
     if (data)
     {
-        result = [[SenTestSuite alloc] initWithName:NSStringFromClass(self)];
+        result = [[XCTestSuite alloc] initWithName:NSStringFromClass(self)];
         unsigned int methodCount;
         Method* methods = class_copyMethodList([self class], &methodCount);
         for (NSUInteger n = 0; n < methodCount; ++n)
@@ -125,7 +125,7 @@
             NSString* name = NSStringFromSelector(selector);
             if ([name rangeOfString:@"parameterisedTest"].location == 0)
             {
-                SenTestSuite* subSuite = [[SenTestSuite alloc] initWithName:name];
+                XCTestSuite* subSuite = [[XCTestSuite alloc] initWithName:name];
                 for (NSString* testName in data)
                 {
                     NSString* cleanName = [self cleanedName:testName];

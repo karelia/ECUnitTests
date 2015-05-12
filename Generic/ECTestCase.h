@@ -7,7 +7,7 @@
 //  liberal license: http://www.elegantchaos.com/license/liberal
 // --------------------------------------------------------------------------
 
-#import <SenTestingKit/SenTestingKit.h>
+@import XCTest;
 
 #define ECAssertTest(expr, isTrueVal, expString, description, ...) \
 do { \
@@ -81,7 +81,7 @@ withDescription:@"%@", STComposeString(description, ##__VA_ARGS__)])]; \
 //! with the assertion macros above.
 // --------------------------------------------------------------------------
 
-@interface ECTestCase : SenTestCase
+@interface ECTestCase : XCTestCase
 {
 @private
     BOOL _exitRunLoop;
